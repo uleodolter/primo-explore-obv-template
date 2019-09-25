@@ -1,0 +1,45 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "globals": {
+        "angular": false,
+        "appConfig": false
+    },
+    "extends": [ "eslint:recommended", "plugin:angular/johnpapa" ],
+    "rules": {
+        "no-console": 0,
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": "off",
+        "no-unused-vars": [
+            2, {"args": "after-used", "argsIgnorePattern": "^_"}
+        ],
+        "angular/no-service-method": "off",
+        "angular/function-type": [2, "named"],
+        "angular/file-name": [0, {
+            "typeSeparator": "dot",
+            "ignoreTypeSuffix": true,
+            "componentTypeMappings": {"factory": "factory", "provider": "provider"}
+        }]
+    }
+}
