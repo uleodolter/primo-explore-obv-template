@@ -5,9 +5,9 @@ services:
   devenv:
     image: uleodolter/primo-explore-devenv-docker
     environment:
-      PROXY: https://search-test.obvsg.at:443
-      VIEW: default
-      GULP_OPTIONS: "--browserify"
+      PROXY: ${PROXY}
+      VIEW: ${VIEW}
+      GULP_OPTIONS: ${GULP_OPTIONS}
       DEVENV_UID: ${DEVENV_UID:-1000}
       DEVENV_GID: ${DEVENV_GID:-1000}
     ports:
@@ -15,5 +15,5 @@ services:
       - 3001:3001
     volumes:
       - ./:/app/primo-explore-devenv/packages
-      - ./:/app/primo-explore-devenv/primo-explore/custom/default
+      - ./:/app/primo-explore-devenv/primo-explore/custom/${VIEW}
       - ../primo-explore-obv-central:/app/primo-explore-devenv/primo-explore/custom/CENTRAL_PACKAGE
