@@ -29,8 +29,8 @@ build_job:
   stage: build
   script:
     - mkdir -p ../$OBV_CENTRAL/js ../$OBV_CENTRAL/css
-    - curl -s $PROXY/primo-explore/custom/CENTRAL_PACKAGE/js/custom.js -o ../$OBV_CENTRAL/js/custom.js
-    - curl -s $PROXY/primo-explore/custom/CENTRAL_PACKAGE/css/custom1.css -o ../$OBV_CENTRAL/css/custom1.css
+    - wget -q $PROXY/primo-explore/custom/CENTRAL_PACKAGE/js/custom.js -O ../$OBV_CENTRAL/js/custom.js
+    - wget -q $PROXY/primo-explore/custom/CENTRAL_PACKAGE/css/custom1.css -O ../$OBV_CENTRAL/css/custom1.css
     - chown -R 1000:1000 . ../$OBV_CENTRAL
     - docker-compose run devenv gulp install-primo-node-modules --view $VIEW --proxy $PROXY
     - docker-compose run devenv gulp app-css --view $VIEW --proxy $PROXY --browserify
