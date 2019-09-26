@@ -3,7 +3,8 @@ version: '3'
 services:
 
   devenv:
-    image: uleodolter/primo-explore-devenv-docker
+    image: ${CI_REGISTRY}/primo/frontend/primo-explore-devenv-docker
+#   image: uleodolter/primo-explore-devenv-docker
     environment:
       PROXY: ${PROXY}
       VIEW: ${VIEW}
