@@ -7,7 +7,7 @@ stages:
   - build
 
 variables:
-  VIEW_CODE: default
+  VIEW: default
   PROXY: https://search-test.obvsg.at:443
   OBV_CENTRAL: primo-explore-obv-central
 
@@ -19,9 +19,9 @@ test_job:
   stage: test
   script:
     - chown -R 1000:1000 . # devenv runs as node user
-    - docker-compose run devenv gulp install-primo-node-modules --view $VIEW_CODE --proxy $PROXY
-    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW_CODE && npm run csslint css/local.css"
-    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW_CODE && npm run eslint js/main.js"
+    - docker-compose run devenv gulp install-primo-node-modules --view $VIEW --proxy $PROXY
+    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW && npm run csslint css/local.css"
+    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW && npm run eslint js/main.js"
   tags:
     - docker-build
 
@@ -39,4 +39,4 @@ build_job:
     - docker-build
   artifacts:
     paths:
-    - $VIEW_CODE.zip
+    - $VIEW.zip
