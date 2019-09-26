@@ -22,6 +22,8 @@ test_job:
     - docker-compose run devenv gulp install-primo-node-modules --view $VIEW_CODE --proxy $PROXY
     - docker-compose run devenv npm run csslint
     - docker-compose run devenv npm run eslint
+  tags:
+    - docker-build
 
 build_job:
   stage: build
