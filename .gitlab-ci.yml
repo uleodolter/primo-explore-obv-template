@@ -20,8 +20,8 @@ test_job:
   script:
     - chown -R 1000:1000 . # devenv runs as node user
     - docker-compose run devenv gulp install-primo-node-modules --view $VIEW_CODE --proxy $PROXY
-    - docker-compose run devenv npm run csslint
-    - docker-compose run devenv npm run eslint
+    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW_CODE && npm run csslint css/local.css"
+    - docker-compose run devenv /bin/sh -c "cd primo-explore/custom/$VIEW_CODE && npm run eslint js/main.js"
   tags:
     - docker-build
 
