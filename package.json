@@ -1,0 +1,30 @@
+{
+  "name": "primo-explore-obv-template",
+  "version": "1.0.0",
+  "description": "Primo Explore OBV Template Package",
+  "main": "js/main.js",
+  "scripts": {
+    "csslint": "csslint css/local.css",
+    "eslint": "eslint js"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.obvsg.at/Primo/Frontend/primo-explore-obv-template.git"
+  },
+  "keywords": [
+    "Primo",
+    "NUI",
+    "OBV"
+  ],
+  "author": {
+    "name": "Ulrich Leodolter",
+    "email": "ulrich.leodolter@obvsg.at"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "csslint": "^1.0.5",
+    "eslint": "^5.5.0",
+    "eslint-plugin-angular": "^3.3.0"
+  }
+}

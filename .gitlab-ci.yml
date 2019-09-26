@@ -1,0 +1,40 @@
+image: $CI_REGISTRY/sysadmin/docker-and-compose:stable
+services:
+  - docker:stable-dind
+
+stages:
+  - test
+  - build
+
+variables:
+  VIEW_CODE: default
+  PROXY: https://search-test.obvsg.at:443
+  OBV_CENTRAL: primo-explore-obv-central
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - docker-compose pull
+
+test_job:
+  stage: test
+  script:
+    - chown -R 1000:1000 . # devenv runs as node user
+    - docker-compose run devenv gulp install-primo-node-modules --view $VIEW_CODE --proxy $PROXY
+    - docker-compose run devenv npm run csslint
+    - docker-compose run devenv npm run eslint
+
+build_job:
+  stage: build
+  script:
+    - mkdir -p ../$OBV_CENTRAL/js ../$OBV_CENTRAL/css
+    - curl -s $PROXY/primo-explore/custom/CENTRAL_PACKAGE/js/custom.js -o ../$OBV_CENTRAL/js/custom.js
+    - curl -s $PROXY/primo-explore/custom/CENTRAL_PACKAGE/css/custom1.css -o ../$OBV_CENTRAL/css/custom1.css
+    - chown -R 1000:1000 . ../$OBV_CENTRAL
+    - docker-compose run devenv gulp install-primo-node-modules --view $VIEW --proxy $PROXY
+    - docker-compose run devenv gulp app-css --view $VIEW --proxy $PROXY --browserify
+    - docker-compose run devenv gulp create-package --view $VIEW --proxy $PROXY --browserify
+  tags:
+    - docker-build
+  artifacts:
+    paths:
+    - $VIEW_CODE.zip
