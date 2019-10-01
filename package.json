@@ -4,7 +4,7 @@
   "description": "Primo Explore OBV Template Package",
   "main": "js/main.js",
   "scripts": {
-    "csslint": "csslint css/local.css",
+    "csslint": "csslint --ignore=adjoining-classes --exclude-list=css/app-colors.css,css/custom1.css css/",
     "eslint": "eslint js"
   },
   "private": true,
