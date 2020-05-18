@@ -9,4 +9,4 @@ angular.module('viewCustom', [
     'angularLoad'
 ]);
 
-import './customTemplates';
+require('./customTemplates.js');
