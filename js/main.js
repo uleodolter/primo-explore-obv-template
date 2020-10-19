@@ -6,7 +6,11 @@
 /* eslint no-unused-vars: 0 */
 
 angular.module('viewCustom', [
-    'angularLoad'
+    'angularLoad',
+    'obvThumbnailLinks',
+    'obvWikipedia',
+    'obvGoogleBooks',
+    'obvRvkInfo'
 ]);
 
 require('./customTemplates.js');
