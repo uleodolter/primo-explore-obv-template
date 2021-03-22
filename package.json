@@ -1,7 +1,7 @@
 {
-  "name": "primo-explore-obv-template",
+  "name": "primo-explore-fub",
   "version": "1.0.0",
-  "description": "Primo Explore OBV Template Package",
+  "description": "Primo Explore FUB Package",
   "main": "js/main.js",
   "scripts": {
     "csslint": "csslint --ignore=adjoining-classes --exclude-list=css/app-colors.css,css/custom1.css css/",
@@ -10,12 +10,12 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://gitlab.obvsg.at/Primo/Frontend/primo-explore-obv-template.git"
+    "url": "https://gitlab.obvsg.at/Primo/Frontend/primo-explore-fub.git"
   },
   "keywords": [
     "Primo",
     "NUI",
-    "OBV"
+    "FUB"
   ],
   "author": {
     "name": "Ulrich Leodolter",
