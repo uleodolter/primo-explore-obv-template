@@ -25,6 +25,6 @@
   "devDependencies": {
     "csslint": "^1.0.5",
     "eslint": "^5.16.0",
-    "eslint-plugin-angular": "^4.0.1"
+    "eslint-plugin-angular": "^4.1.0"
   }
 }
